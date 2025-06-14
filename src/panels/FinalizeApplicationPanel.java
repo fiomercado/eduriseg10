@@ -47,15 +47,26 @@ public class FinalizeApplicationPanel extends JPanel {
         JPanel buttonPanel = new JPanel(new FlowLayout());
         buttonPanel.setBackground(new Color(240, 240, 240));
 
-        JButton backButton = new JButton("Back to Form");
+        JButton updateButton = new JButton("Update Form");
         JButton submitButton = new JButton("Submit Application");
         JButton homeButton = new JButton("Back to Home");
 
-        backButton.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+        updateButton.setFont(new Font("Century Gothic", Font.PLAIN, 14));
         submitButton.setFont(new Font("Century Gothic", Font.BOLD, 14));
         homeButton.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 
-        backButton.addActionListener(e -> cardLayout.show(mainPanel, "Form"));
+        // Update button logic
+        updateButton.addActionListener(e -> {
+            // Assuming "Form" maps to FillOutFormPanel and it's at index 0
+            for (Component comp : mainPanel.getComponents()) {
+                if (comp instanceof panels.FillOutFormPanel fillPanel) {
+                    fillPanel.prefillForm(formData); // You must implement this in FillOutFormPanel
+                    break;
+                }
+            }
+            cardLayout.show(mainPanel, "Form");
+        });
+
         submitButton.addActionListener(e -> {
             JOptionPane.showMessageDialog(this,
                     "Application submitted successfully! Thank you for submitting your scholarship application." +
@@ -65,9 +76,10 @@ public class FinalizeApplicationPanel extends JPanel {
                     JOptionPane.INFORMATION_MESSAGE);
             cardLayout.show(mainPanel, "Home");
         });
+
         homeButton.addActionListener(e -> cardLayout.show(mainPanel, "Home"));
 
-        buttonPanel.add(backButton);
+        buttonPanel.add(updateButton);
         buttonPanel.add(submitButton);
         buttonPanel.add(homeButton);
 
