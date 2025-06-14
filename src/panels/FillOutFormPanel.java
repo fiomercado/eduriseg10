@@ -81,54 +81,54 @@ public class FillOutFormPanel extends JPanel {
     }
 
     private void initializeComponents() {
-        // Initialize personal information fields
-        firstNameField = new JTextField(20);
-        middleNameField = new JTextField(20);
-        lastNameField = new JTextField(20);
-        suffixField = new JTextField(20);
-        birthDayField = new JTextField(20);
-        birthYearField = new JTextField(20);
-        ageField = new JTextField(20);
-        religionField = new JTextField(20);
-        citizenshipField = new JTextField(20);
-        addressField = new JTextField(20);
-        permanentAddressField = new JTextField(20);
-        incomeField = new JTextField(20);
-        contactField = new JTextField(20);
+        // Initialize personal information fields with smaller width
+        firstNameField = new JTextField(15);
+        middleNameField = new JTextField(15);
+        lastNameField = new JTextField(15);
+        suffixField = new JTextField(10);
+        birthDayField = new JTextField(8);
+        birthYearField = new JTextField(8);
+        ageField = new JTextField(8);
+        religionField = new JTextField(15);
+        citizenshipField = new JTextField(15);
+        addressField = new JTextField(25);
+        permanentAddressField = new JTextField(25);
+        incomeField = new JTextField(15);
+        contactField = new JTextField(15);
         emailField = new JTextField(20);
-        cellphoneField = new JTextField(20);
-        gwaField = new JTextField(20);
+        cellphoneField = new JTextField(15);
+        gwaField = new JTextField(10);
         degreeProgramField = new JTextField(20);
         schoolNameField = new JTextField(20);
-        schoolAddressField = new JTextField(20);
+        schoolAddressField = new JTextField(25);
         schoolEmailField = new JTextField(20);
-        schoolIdField = new JTextField(20);
+        schoolIdField = new JTextField(15);
 
-        // Initialize parent fields
-        parentFirstNameField = new JTextField(20);
-        parentMiddleNameField = new JTextField(20);
-        parentLastNameField = new JTextField(20);
-        parentSuffixField = new JTextField(20);
-        parentBirthDayField = new JTextField(20);
-        parentBirthYearField = new JTextField(20);
-        parentAgeField = new JTextField(20);
-        parentCitizenshipField = new JTextField(20);
-        parentOccupationField = new JTextField(20);
+        // Initialize parent fields with smaller width
+        parentFirstNameField = new JTextField(15);
+        parentMiddleNameField = new JTextField(15);
+        parentLastNameField = new JTextField(15);
+        parentSuffixField = new JTextField(10);
+        parentBirthDayField = new JTextField(8);
+        parentBirthYearField = new JTextField(8);
+        parentAgeField = new JTextField(8);
+        parentCitizenshipField = new JTextField(15);
+        parentOccupationField = new JTextField(15);
         parentEmailField = new JTextField(20);
-        parentMonthlyIncomeField = new JTextField(20);
-        parentEducationalAttainmentField = new JTextField(20);
+        parentMonthlyIncomeField = new JTextField(15);
+        parentEducationalAttainmentField = new JTextField(25);
 
-        // Initialize child fields
-        childFirstNameField = new JTextField(20);
-        childMiddleNameField = new JTextField(20);
-        childLastNameField = new JTextField(20);
-        childSuffixField = new JTextField(20);
-        childBirthDayField = new JTextField(20);
-        childBirthYearField = new JTextField(20);
-        childAgeField = new JTextField(20);
-        childGradeLevelField = new JTextField(20);
-        childSchoolNameField = new JTextField(20);
-        childSchoolAddressField = new JTextField(20);
+        // Initialize child fields with smaller width
+        childFirstNameField = new JTextField(15);
+        childMiddleNameField = new JTextField(15);
+        childLastNameField = new JTextField(15);
+        childSuffixField = new JTextField(10);
+        childBirthDayField = new JTextField(8);
+        childBirthYearField = new JTextField(8);
+        childAgeField = new JTextField(8);
+        childGradeLevelField = new JTextField(10);
+        childSchoolNameField = new JTextField(25);
+        childSchoolAddressField = new JTextField(25);
 
         // Initialize combo boxes
         String[] months = {"January", "February", "March", "April", "May", "June",
@@ -181,10 +181,11 @@ public class FillOutFormPanel extends JPanel {
         // Children Information Section
         formPanel.add(createSectionPanel("Children Information", createChildPanel()));
 
-        // Create scroll pane
+        // Create scroll pane with horizontal scrolling enabled
         JScrollPane scrollPane = new JScrollPane(formPanel);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.getViewport().setPreferredSize(new Dimension(800, 600));
 
         // Add navigation buttons
         JPanel buttonPanel = new JPanel(new FlowLayout());
@@ -231,115 +232,131 @@ public class FillOutFormPanel extends JPanel {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
 
         // Row 1 - Name fields
-        gbc.gridx = 0; gbc.gridy = 0;
+        gbc.gridx = 0; gbc.gridy = 0; gbc.weightx = 0.0;
         panel.add(new JLabel("First Name:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(firstNameField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Middle Name:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 1.0;
         panel.add(middleNameField, gbc);
 
         // Row 2
-        gbc.gridx = 0; gbc.gridy = 1;
+        gbc.gridx = 0; gbc.gridy = 1; gbc.weightx = 0.0;
         panel.add(new JLabel("Last Name:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(lastNameField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Suffix:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 0.5;
         panel.add(suffixField, gbc);
 
         // Row 3 - Birthdate
-        gbc.gridx = 0; gbc.gridy = 2;
+        gbc.gridx = 0; gbc.gridy = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Birth Month:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(birthMonthField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Birth Day:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 0.5;
         panel.add(birthDayField, gbc);
 
         // Row 4
-        gbc.gridx = 0; gbc.gridy = 3;
+        gbc.gridx = 0; gbc.gridy = 3; gbc.weightx = 0.0;
         panel.add(new JLabel("Birth Year:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 0.5;
         panel.add(birthYearField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Age:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 0.5;
         panel.add(ageField, gbc);
 
         // Row 5
-        gbc.gridx = 0; gbc.gridy = 4;
+        gbc.gridx = 0; gbc.gridy = 4; gbc.weightx = 0.0;
         panel.add(new JLabel("Sex:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(sexField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Civil Status:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 1.0;
         panel.add(civilStatusField, gbc);
 
         // Row 6
-        gbc.gridx = 0; gbc.gridy = 5;
+        gbc.gridx = 0; gbc.gridy = 5; gbc.weightx = 0.0;
         panel.add(new JLabel("Religion:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(religionField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Citizenship:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 1.0;
         panel.add(citizenshipField, gbc);
 
-        // Row 7
-        gbc.gridx = 0; gbc.gridy = 6;
-        panel.add(new JLabel("Email Address:"), gbc);
-        gbc.gridx = 1;
-        panel.add(emailField, gbc);
-        gbc.gridx = 2;
-        panel.add(new JLabel("Cellphone Number:"), gbc);
-        gbc.gridx = 3;
-        panel.add(cellphoneField, gbc);
+        // Row 7 - Full width fields
+        gbc.gridx = 0; gbc.gridy = 6; gbc.weightx = 0.0;
+        panel.add(new JLabel("Address:"), gbc);
+        gbc.gridx = 1; gbc.gridwidth = 3; gbc.weightx = 1.0;
+        panel.add(addressField, gbc);
+        gbc.gridwidth = 1;
 
         // Row 8
-        gbc.gridx = 0; gbc.gridy = 7;
-        panel.add(new JLabel("House Type:"), gbc);
-        gbc.gridx = 1;
-        panel.add(houseTypeField, gbc);
-        gbc.gridx = 2;
-        panel.add(new JLabel("GWA:"), gbc);
-        gbc.gridx = 3;
-        panel.add(gwaField, gbc);
+        gbc.gridx = 0; gbc.gridy = 7; gbc.weightx = 0.0;
+        panel.add(new JLabel("Permanent Address:"), gbc);
+        gbc.gridx = 1; gbc.gridwidth = 3; gbc.weightx = 1.0;
+        panel.add(permanentAddressField, gbc);
+        gbc.gridwidth = 1;
 
         // Row 9
-        gbc.gridx = 0; gbc.gridy = 8;
-        panel.add(new JLabel("Degree Program:"), gbc);
-        gbc.gridx = 1;
-        panel.add(degreeProgramField, gbc);
-        gbc.gridx = 2;  // RIGHT SIDE - Same row
-        panel.add(new JLabel("Permanent Address:"), gbc);
-        gbc.gridx = 3;  // RIGHT SIDE - Same row
-        panel.add(permanentAddressField, gbc);
+        gbc.gridx = 0; gbc.gridy = 8; gbc.weightx = 0.0;
+        panel.add(new JLabel("Email Address:"), gbc);
+        gbc.gridx = 1; gbc.weightx = 1.0;
+        panel.add(emailField, gbc);
+        gbc.gridx = 2; gbc.weightx = 0.0;
+        panel.add(new JLabel("Cellphone:"), gbc);
+        gbc.gridx = 3; gbc.weightx = 1.0;
+        panel.add(cellphoneField, gbc);
+
+        // Row 10
+        gbc.gridx = 0; gbc.gridy = 9; gbc.weightx = 0.0;
+        panel.add(new JLabel("House Type:"), gbc);
+        gbc.gridx = 1; gbc.weightx = 1.0;
+        panel.add(houseTypeField, gbc);
+        gbc.gridx = 2; gbc.weightx = 0.0;
+        panel.add(new JLabel("GWA:"), gbc);
+        gbc.gridx = 3; gbc.weightx = 0.5;
+        panel.add(gwaField, gbc);
 
         // Row 11
-        gbc.gridx = 0; gbc.gridy = 9;
+        gbc.gridx = 0; gbc.gridy = 10; gbc.weightx = 0.0;
+        panel.add(new JLabel("Degree Program:"), gbc);
+        gbc.gridx = 1; gbc.gridwidth = 3; gbc.weightx = 1.0;
+        panel.add(degreeProgramField, gbc);
+        gbc.gridwidth = 1;
+
+        // Row 12
+        gbc.gridx = 0; gbc.gridy = 11; gbc.weightx = 0.0;
         panel.add(new JLabel("School Name:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.gridwidth = 3; gbc.weightx = 1.0;
         panel.add(schoolNameField, gbc);
-        gbc.gridx = 2;  // RIGHT SIDE - Same row
-        panel.add(new JLabel("School Address:"), gbc);
-        gbc.gridx = 3;  // RIGHT SIDE - Same row
-        panel.add(schoolAddressField, gbc);
+        gbc.gridwidth = 1;
 
         // Row 13
-        gbc.gridx = 0; gbc.gridy = 10;
+        gbc.gridx = 0; gbc.gridy = 12; gbc.weightx = 0.0;
+        panel.add(new JLabel("School Address:"), gbc);
+        gbc.gridx = 1; gbc.gridwidth = 3; gbc.weightx = 1.0;
+        panel.add(schoolAddressField, gbc);
+        gbc.gridwidth = 1;
+
+        // Row 14
+        gbc.gridx = 0; gbc.gridy = 13; gbc.weightx = 0.0;
         panel.add(new JLabel("School Email:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(schoolEmailField, gbc);
-        gbc.gridx = 2;
-        panel.add(new JLabel("School ID Number:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 2; gbc.weightx = 0.0;
+        panel.add(new JLabel("School ID:"), gbc);
+        gbc.gridx = 3; gbc.weightx = 1.0;
         panel.add(schoolIdField, gbc);
 
         return panel;
@@ -351,87 +368,88 @@ public class FillOutFormPanel extends JPanel {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
 
         // Row 1
-        gbc.gridx = 0; gbc.gridy = 0;
+        gbc.gridx = 0; gbc.gridy = 0; gbc.weightx = 0.0;
         panel.add(new JLabel("Parent Type:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(parentTypeField, gbc);
 
         // Row 2 - Name fields
-        gbc.gridx = 0; gbc.gridy = 1;
+        gbc.gridx = 0; gbc.gridy = 1; gbc.weightx = 0.0;
         panel.add(new JLabel("First Name:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(parentFirstNameField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Middle Name:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 1.0;
         panel.add(parentMiddleNameField, gbc);
 
         // Row 3
-        gbc.gridx = 0; gbc.gridy = 2;
+        gbc.gridx = 0; gbc.gridy = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Last Name:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(parentLastNameField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Suffix:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 0.5;
         panel.add(parentSuffixField, gbc);
 
         // Row 4 - Birthdate
-        gbc.gridx = 0; gbc.gridy = 3;
+        gbc.gridx = 0; gbc.gridy = 3; gbc.weightx = 0.0;
         panel.add(new JLabel("Birth Month:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(parentBirthMonthField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Birth Day:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 0.5;
         panel.add(parentBirthDayField, gbc);
 
         // Row 5
-        gbc.gridx = 0; gbc.gridy = 4;
+        gbc.gridx = 0; gbc.gridy = 4; gbc.weightx = 0.0;
         panel.add(new JLabel("Birth Year:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 0.5;
         panel.add(parentBirthYearField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Age:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 0.5;
         panel.add(parentAgeField, gbc);
 
         // Row 6
-        gbc.gridx = 0; gbc.gridy = 5;
+        gbc.gridx = 0; gbc.gridy = 5; gbc.weightx = 0.0;
         panel.add(new JLabel("Sex:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(parentSexField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Citizenship:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 1.0;
         panel.add(parentCitizenshipField, gbc);
 
         // Row 7
-        gbc.gridx = 0; gbc.gridy = 6;
+        gbc.gridx = 0; gbc.gridy = 6; gbc.weightx = 0.0;
         panel.add(new JLabel("Civil Status:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(parentCivilStatusField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Occupation:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 1.0;
         panel.add(parentOccupationField, gbc);
 
         // Row 8
-        gbc.gridx = 0; gbc.gridy = 7;
+        gbc.gridx = 0; gbc.gridy = 7; gbc.weightx = 0.0;
         panel.add(new JLabel("Email Address:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(parentEmailField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Monthly Income:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 1.0;
         panel.add(parentMonthlyIncomeField, gbc);
 
         // Row 9
-        gbc.gridx = 0; gbc.gridy = 8;
+        gbc.gridx = 0; gbc.gridy = 8; gbc.weightx = 0.0;
         panel.add(new JLabel("Educational Attainment:"), gbc);
-        gbc.gridx = 1; gbc.gridwidth = 3;
+        gbc.gridx = 1; gbc.gridwidth = 3; gbc.weightx = 1.0;
         panel.add(parentEducationalAttainmentField, gbc);
 
         return panel;
@@ -443,68 +461,69 @@ public class FillOutFormPanel extends JPanel {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
 
         // Row 1 - Name fields
-        gbc.gridx = 0; gbc.gridy = 0;
+        gbc.gridx = 0; gbc.gridy = 0; gbc.weightx = 0.0;
         panel.add(new JLabel("First Name:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(childFirstNameField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Middle Name:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 1.0;
         panel.add(childMiddleNameField, gbc);
 
         // Row 2
-        gbc.gridx = 0; gbc.gridy = 1;
+        gbc.gridx = 0; gbc.gridy = 1; gbc.weightx = 0.0;
         panel.add(new JLabel("Last Name:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(childLastNameField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Suffix:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 0.5;
         panel.add(childSuffixField, gbc);
 
         // Row 3 - Birthdate
-        gbc.gridx = 0; gbc.gridy = 2;
+        gbc.gridx = 0; gbc.gridy = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Birth Month:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(childBirthMonthField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Birth Day:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 0.5;
         panel.add(childBirthDayField, gbc);
 
         // Row 4
-        gbc.gridx = 0; gbc.gridy = 3;
+        gbc.gridx = 0; gbc.gridy = 3; gbc.weightx = 0.0;
         panel.add(new JLabel("Birth Year:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 0.5;
         panel.add(childBirthYearField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Age:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 0.5;
         panel.add(childAgeField, gbc);
 
         // Row 5
-        gbc.gridx = 0; gbc.gridy = 4;
+        gbc.gridx = 0; gbc.gridy = 4; gbc.weightx = 0.0;
         panel.add(new JLabel("Sex:"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.weightx = 1.0;
         panel.add(childSexField, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.weightx = 0.0;
         panel.add(new JLabel("Grade Level:"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.weightx = 0.5;
         panel.add(childGradeLevelField, gbc);
 
         // Row 6
-        gbc.gridx = 0; gbc.gridy = 5;
+        gbc.gridx = 0; gbc.gridy = 5; gbc.weightx = 0.0;
         panel.add(new JLabel("School Name:"), gbc);
-        gbc.gridx = 1; gbc.gridwidth = 3;
+        gbc.gridx = 1; gbc.gridwidth = 3; gbc.weightx = 1.0;
         panel.add(childSchoolNameField, gbc);
         gbc.gridwidth = 1;
 
         // Row 7
-        gbc.gridx = 0; gbc.gridy = 6;
+        gbc.gridx = 0; gbc.gridy = 6; gbc.weightx = 0.0;
         panel.add(new JLabel("School Address:"), gbc);
-        gbc.gridx = 1; gbc.gridwidth = 3;
+        gbc.gridx = 1; gbc.gridwidth = 3; gbc.weightx = 1.0;
         panel.add(childSchoolAddressField, gbc);
 
         return panel;
@@ -553,6 +572,7 @@ public class FillOutFormPanel extends JPanel {
         data.setParentType((String) parentTypeField.getSelectedItem());
         data.setParentFirstName(parentFirstNameField.getText().trim());
         data.setParentMiddleName(parentMiddleNameField.getText().trim());
+        data.setParentLastName(parentLastNameField.getText().trim());
         data.setParentLastName(parentLastNameField.getText().trim());
         data.setParentSuffix(parentSuffixField.getText().trim());
         data.setParentBirthMonth((String) parentBirthMonthField.getSelectedItem());
